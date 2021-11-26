@@ -1,0 +1,1 @@
+{"version":3,"file":"\/home\/julia\/clojure\/project\/test\/resources\/public\/js\/compiled\/out\/devtools\/version.js","sources":["version.cljs?rel=1637270083620"],"lineCount":9,"mappings":";AAAA;;AAGA,AAAKA,mCAAgB;AAErB,uCAAA,vCAAMC;AAAN,AACED","names":["devtools.version\/current-version","devtools.version\/get-current-version"]}
