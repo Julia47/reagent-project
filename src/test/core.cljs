@@ -24,7 +24,7 @@
   {:chart {:type "scatter"
            :zoomType "xy"
            :backgroundColor  "rgb(255,255,255,.4)" }
-   :title {:text "The structure of income and expence for all period"}
+   :title {:text "The structure of income and expense for all period"}
    :xAxis {:title {:enabled true
                    :text "Date"}
            :type "datetime"
@@ -63,7 +63,7 @@
                     :errors {:source-error ""
                              :money-error  ""}
                     :db     {:money-sources    (db/get-money-sources)
-                             :expence-tags     (db/get-expence-tags)
+                             :expense-tags     (db/get-expense-tags)
                              :income-tags      (db/get-income-tags)
                              :transactions     (db/get-transactions)
                              :balance          (db/get-balance)
@@ -87,7 +87,7 @@
 (def money-error    (r/cursor !state[:errors :money-error]))
 (def balance        (r/cursor !state[:db :balance]))
 (def all-flow       (r/cursor !state[:db :all-flow]))
-(def expence-tags   (r/cursor !state[:db :expence-tags]))
+(def expense-tags   (r/cursor !state[:db :expense-tags]))
 (def income-tags    (r/cursor !state[:db :income-tags]))
 (def money-source   (r/cursor !state[:db :new-transaction :transaction/money-source]))
 (def flow           (r/cursor !state[:db :new-transaction :transaction/flow]))
@@ -196,8 +196,8 @@
     (if (empty? value) ""
         (str (first sub-str) " **** **** " (last sub-str)))))
 
-(defn calculate-flow-expence [flow]
-  (int (* (/ (:expence flow) (:flow flow)) 100)))
+(defn calculate-flow-expense [flow]
+  (int (* (/ (:expense flow) (:flow flow)) 100)))
 
 
 ;;;;;;;;;;;;;;;;
@@ -249,7 +249,7 @@
 
 (defn flow-component []
   [:input.input-form {:style {:background-color (if @flow "rgb(74, 180, 165, 0.7)" "rgb(255, 160, 122, 0.7)")}
-                      :type "button" :value (if @flow "Income" "Expence")
+                      :type "button" :value (if @flow "Income" "Expense")
                       :on-click #(dispatch! {:type :toggle})}])
 
 (defn select-tag [tags]
@@ -271,7 +271,7 @@
    [:input.input-form {:type "text"
                        :placeholder "Enter money"
                        :on-change #(dispatch! {:type :money :value (-> % .-target .-value js/parseInt)})}]
-   [select-tag (if @flow @income-tags @expence-tags)]
+   [select-tag (if @flow @income-tags @expense-tags)]
    [input-date]
    [:input.input-form {:type     "button"
                        :value    "Save"
@@ -296,12 +296,12 @@
   (let [flow (:transaction/flow item)
         tag  (:transaction/tag item)]
     [:tr.tr-child {:style {:background (if flow "rgb(159, 226, 191, 0.4)" "rgb(255, 160, 122, 0.3)")}}
-     [:td (if flow "Income" "Expence")]
+     [:td (if flow "Income" "Expense")]
      [:td (:money-source/name (:transaction/money-source item))]
      [:td (:transaction/money item)]
      [:td (if flow
             (:tag/income-tag tag)
-            (:tag/expence-tag tag))]
+            (:tag/expense-tag tag))]
      [:td (:transaction/date item)]]))
 
 (defn table-transactions [] 
@@ -322,11 +322,11 @@
 ;;; CHARTS ;;;
 ;;;;;;;;;;;;;;
 (defn gauge-chart []
-  (let [part (calculate-flow-expence @all-flow)]
+  (let [part (calculate-flow-expense @all-flow)]
     [:div {:style {:margin "1% 0% 5% 27%"}}
      [:div.container
       [:div.gauge-a]
-      [:div.gauge-b]
+      [:div.gauge-b] 
       [:div.gauge-c {:style {:background-color
                              (cond (< part 35) "rgb(9, 180, 165, .4)"  
                                    (> part 65) "rgb(255, 71, 71, .7)"
@@ -336,7 +336,7 @@
      [:h1.header {:style {:margin-top "-7%"
                           :margin-bottom "-4%"
                           :font-weight "500"
-                          :margin-left "-11%"}} "The ratio of expenсe to cash flow"]]) )
+                          :margin-left "-11%"}} "The ratio of expense to cash flow"]]) )
 
 
 (defn mount-chart [comp]

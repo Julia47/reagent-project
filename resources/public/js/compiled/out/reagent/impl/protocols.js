@@ -7,7 +7,7 @@ goog.require('cljs.core');
  */
 reagent.impl.protocols.Compiler = function(){};
 
-var reagent$impl$protocols$Compiler$get_id$dyn_21431 = (function (this$){
+var reagent$impl$protocols$Compiler$get_id$dyn_36962 = (function (this$){
 var x__4428__auto__ = (((this$ == null))?null:this$);
 var m__4429__auto__ = (reagent.impl.protocols.get_id[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -25,11 +25,11 @@ reagent.impl.protocols.get_id = (function reagent$impl$protocols$get_id(this$){
 if((((!((this$ == null)))) && ((!((this$.reagent$impl$protocols$Compiler$get_id$arity$1 == null)))))){
 return this$.reagent$impl$protocols$Compiler$get_id$arity$1(this$);
 } else {
-return reagent$impl$protocols$Compiler$get_id$dyn_21431.call(null,this$);
+return reagent$impl$protocols$Compiler$get_id$dyn_36962.call(null,this$);
 }
 });
 
-var reagent$impl$protocols$Compiler$parse_tag$dyn_21432 = (function (this$,tag_name,tag_value){
+var reagent$impl$protocols$Compiler$parse_tag$dyn_36963 = (function (this$,tag_name,tag_value){
 var x__4428__auto__ = (((this$ == null))?null:this$);
 var m__4429__auto__ = (reagent.impl.protocols.parse_tag[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -47,11 +47,11 @@ reagent.impl.protocols.parse_tag = (function reagent$impl$protocols$parse_tag(th
 if((((!((this$ == null)))) && ((!((this$.reagent$impl$protocols$Compiler$parse_tag$arity$3 == null)))))){
 return this$.reagent$impl$protocols$Compiler$parse_tag$arity$3(this$,tag_name,tag_value);
 } else {
-return reagent$impl$protocols$Compiler$parse_tag$dyn_21432.call(null,this$,tag_name,tag_value);
+return reagent$impl$protocols$Compiler$parse_tag$dyn_36963.call(null,this$,tag_name,tag_value);
 }
 });
 
-var reagent$impl$protocols$Compiler$as_element$dyn_21433 = (function (this$,x){
+var reagent$impl$protocols$Compiler$as_element$dyn_36964 = (function (this$,x){
 var x__4428__auto__ = (((this$ == null))?null:this$);
 var m__4429__auto__ = (reagent.impl.protocols.as_element[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -69,11 +69,11 @@ reagent.impl.protocols.as_element = (function reagent$impl$protocols$as_element(
 if((((!((this$ == null)))) && ((!((this$.reagent$impl$protocols$Compiler$as_element$arity$2 == null)))))){
 return this$.reagent$impl$protocols$Compiler$as_element$arity$2(this$,x);
 } else {
-return reagent$impl$protocols$Compiler$as_element$dyn_21433.call(null,this$,x);
+return reagent$impl$protocols$Compiler$as_element$dyn_36964.call(null,this$,x);
 }
 });
 
-var reagent$impl$protocols$Compiler$make_element$dyn_21434 = (function (this$,argv,component,jsprops,first_child){
+var reagent$impl$protocols$Compiler$make_element$dyn_36965 = (function (this$,argv,component,jsprops,first_child){
 var x__4428__auto__ = (((this$ == null))?null:this$);
 var m__4429__auto__ = (reagent.impl.protocols.make_element[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -91,9 +91,9 @@ reagent.impl.protocols.make_element = (function reagent$impl$protocols$make_elem
 if((((!((this$ == null)))) && ((!((this$.reagent$impl$protocols$Compiler$make_element$arity$5 == null)))))){
 return this$.reagent$impl$protocols$Compiler$make_element$arity$5(this$,argv,component,jsprops,first_child);
 } else {
-return reagent$impl$protocols$Compiler$make_element$dyn_21434.call(null,this$,argv,component,jsprops,first_child);
+return reagent$impl$protocols$Compiler$make_element$dyn_36965.call(null,this$,argv,component,jsprops,first_child);
 }
 });
 
 
-//# sourceMappingURL=protocols.js.map?rel=1637141748124
+//# sourceMappingURL=protocols.js.map?rel=1637933613865

@@ -23811,3 +23811,31 @@ Notifying browser that CSS file changed: resources/public/css/style.css
 Notifying browser that CSS file changed: resources/public/css/style.css
 Notifying browser that CSS file changed: resources/public/css/style.css
 Notifying browser that CSS file changed: resources/public/css/style.css
+Compiling build :dev to "resources/public/js/compiled/test.js" from ["src"]...
+[36m----  Compiler Warning on   src/test/core.cljs   line:66  column:49  ----[0m
+
+  [1mUse of undeclared Var test.db/get-expense-tags[0m
+
+  [36m62[0m  [36m(def initial-state {:switch 0[0m
+  [36m63[0m  [36m                    :errors {:source-error ""[0m
+  [36m64[0m  [36m                             :money-error  ""}[0m
+  [36m65[0m  [36m                    :db     {:money-sources    (db/get-money-sources)[0m
+  [33m66[0m  [1m                             :expense-tags     (db/get-expense-tags)[0m
+  [0m  [0m  [33m                                                ^--- Use of undeclared Var test.db/get-expense-tags[0m
+  [36m67[0m  [36m                             :income-tags      (db/get-income-tags)[0m
+  [36m68[0m  [36m                             :transactions     (db/get-transactions)[0m
+  [36m69[0m  [36m                             :balance          (db/get-balance)[0m
+  [36m70[0m  [36m                             :all-flow         (db/get-all-flow)[0m
+  [36m71[0m  [36m                             :new-money-source {:money-source/account-number ""[0m
+
+[36m----  Compiler Warning : Please see src/test/core.cljs  ----[0m
+[32mSuccessfully compiled build :dev to "resources/public/js/compiled/test.js" in 0.488 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/cljs_deps.js
+notifying browser that file changed:  resources/public/js/compiled/out/test/core.js
+Compiling build :dev to "resources/public/js/compiled/test.js" from ["src"]...
+[32mSuccessfully compiled build :dev to "resources/public/js/compiled/test.js" in 0.526 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/test/db.js
+Compiling build :dev to "resources/public/js/compiled/test.js" from ["src"]...
+[32mSuccessfully compiled build :dev to "resources/public/js/compiled/test.js" in 0.469 seconds.[0m
+notifying browser that file changed:  resources/public/js/compiled/out/test/core.js

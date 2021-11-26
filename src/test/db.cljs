@@ -18,13 +18,13 @@
                                          :db/isComponent true
                                          :db/cardinality :db.cardinality/one}
    :transaction/money                   {}
-   :transaction/flow                    {:db/doc "boolean, if income - true, expence -false"}
+   :transaction/flow                    {:db/doc "boolean, if income - true, expense -false"}
    :money-source/name                   {}
    :money-source/type                   {}
    :money-source/balance                {}
    :money-source/account-number         {}
    :tag/income-tag                      {}
-   :tag/expence-tag                     {}})
+   :tag/expense-tag                     {}})
 
 (def db (d/create-conn schema))
 
@@ -47,13 +47,13 @@
   (let [rand-nums    #(rand-nth (range % %2))
         money-source (rand-nums 18 22)
         income-tag   (rand-nums 1 5) 
-        expence-tag  (rand-nums 5 18)
+        expense-tag  (rand-nums 5 18)
         money        (int (rand 1000))
         year         (rand-nums 2020 2021)
         month        (rand-nums 0 12)
         day          (rand-nums 0 28)
         flow         (rand-nth [true false])
-        tag          (if flow income-tag expence-tag)
+        tag          (if flow income-tag expense-tag)
         date         (fn [year month day] (str year "-" (if (< month 10) "0" "") month
                                                "-"  (if (< day 10) "0" "") day))
         date         (date year month day)]
@@ -77,31 +77,31 @@
              {:db/id           -4
               :tag/income-tag "other"}
              {:db/id           -5
-              :tag/expence-tag "clothes"}
+              :tag/expense-tag "clothes"}
              {:db/id           -6
-              :tag/expence-tag "gifts"}
+              :tag/expense-tag "gifts"}
              {:db/id           -7
-              :tag/expence-tag "health"}
+              :tag/expense-tag "health"}
              {:db/id           -8
-              :tag/expence-tag "food"}
+              :tag/expense-tag "food"}
              {:db/id           -9
-              :tag/expence-tag "transport"}
+              :tag/expense-tag "transport"}
              {:db/id           -10
-              :tag/expence-tag "sport"}
+              :tag/expense-tag "sport"}
              {:db/id           -11
-              :tag/expence-tag "travel"}
+              :tag/expense-tag "travel"}
              {:db/id           -12
-              :tag/expence-tag "entertainment"}
+              :tag/expense-tag "entertainment"}
              {:db/id           -13
-              :tag/expence-tag "house"}
+              :tag/expense-tag "house"}
              {:db/id           -14
-              :tag/expence-tag "pets"}
+              :tag/expense-tag "pets"}
              {:db/id           -15
-              :tag/expence-tag "family"}
+              :tag/expense-tag "family"}
              {:db/id           -16
-              :tag/expence-tag "car"}
+              :tag/expense-tag "car"}
              {:db/id           -17
-              :tag/expence-tag "other"}
+              :tag/expense-tag "other"}
              {:db/id                       -18
               :money-source/name           "cash"
               :money-source/type           ""
@@ -141,15 +141,15 @@
 (defn get-income-tags []
   (get-column :tag/income-tag))
 
-(defn get-expence-tags []
-  (get-column :tag/expence-tag))
+(defn get-expense-tags []
+  (get-column :tag/expense-tag))
 
 (defn get-id-tag [tag flow]
   (d/q '[:find ?p .
          :in $ ?tag ?k
          :where
          [?p ?k ?tag]] @db tag
-       (if flow :tag/income-tag :tag/expence-tag)))
+       (if flow :tag/income-tag :tag/expense-tag)))
 
 (defn get-money-sources []
   (get-columns :money-source/name))
@@ -165,9 +165,9 @@
   (reduce (fn [acc m]
             (update (if (:transaction/flow m)
                       (update acc :income #(+ % (:transaction/money m)))
-                      (update acc :expence #(+ % (:transaction/money m))))
+                      (update acc :expense #(+ % (:transaction/money m))))
                     :flow #(+ % (:transaction/money m))))
-          {:flow 0 :expence 0 :income 0} (get-transactions)))
+          {:flow 0 :expense 0 :income 0} (get-transactions)))
 
 (defn get-data-chart []
   (let [str-to-date  (fn [str-data]
@@ -176,7 +176,7 @@
                                    (clojure.string/split str-data #"\-"))]
                          (.UTC js/Date year month day)))]
     (reduce (fn [acc [m v]] (let [flow (:transaction/flow (first v))]
-                              (conj acc {:name (if flow (:tag/income-tag m) (:tag/expence-tag m)) 
+                              (conj acc {:name (if flow (:tag/income-tag m) (:tag/expense-tag m)) 
                                          :color (if flow  "rgb(9, 180, 165, .5)" "rgb(255, 160, 122, .7)";; "rgb(51, 177, 128, .7)" "rgb(255, 71, 71, .7)"
                                                     )
                                          :data (vec (map (fn [t] [(str-to-date (:transaction/date t))

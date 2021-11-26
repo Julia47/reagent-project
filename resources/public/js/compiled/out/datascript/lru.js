@@ -88,9 +88,9 @@ var gen_key = lru.gen_key;
 var key_gen = lru.key_gen;
 var gen = lru.gen;
 var limit = lru.limit;
-var vec__36023 = cljs.core.first.call(null,gen_key);
-var g = cljs.core.nth.call(null,vec__36023,(0),null);
-var k = cljs.core.nth.call(null,vec__36023,(1),null);
+var vec__35271 = cljs.core.first.call(null,gen_key);
+var g = cljs.core.nth.call(null,vec__35271,(0),null);
+var k = cljs.core.nth.call(null,vec__35271,(1),null);
 return datascript.lru.__GT_LRU.call(null,cljs.core.dissoc.call(null,key_value,k),cljs.core.dissoc.call(null,gen_key,g),cljs.core.dissoc.call(null,key_gen,k),gen,limit);
 } else {
 return lru;
@@ -100,4 +100,4 @@ datascript.lru.lru = (function datascript$lru$lru(limit){
 return datascript.lru.__GT_LRU.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.sorted_map.call(null),cljs.core.PersistentArrayMap.EMPTY,(0),limit);
 });
 
-//# sourceMappingURL=lru.js.map?rel=1637332182120
+//# sourceMappingURL=lru.js.map?rel=1637933612377

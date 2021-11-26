@@ -7,7 +7,7 @@ goog.require('cljs.core');
  */
 camel_snake_kebab.internals.alter_name.AlterName = function(){};
 
-var camel_snake_kebab$internals$alter_name$AlterName$alter_name$dyn_35090 = (function (this$,f){
+var camel_snake_kebab$internals$alter_name$AlterName$alter_name$dyn_37397 = (function (this$,f){
 var x__4428__auto__ = (((this$ == null))?null:this$);
 var m__4429__auto__ = (camel_snake_kebab.internals.alter_name.alter_name[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -28,7 +28,7 @@ camel_snake_kebab.internals.alter_name.alter_name = (function camel_snake_kebab$
 if((((!((this$ == null)))) && ((!((this$.camel_snake_kebab$internals$alter_name$AlterName$alter_name$arity$2 == null)))))){
 return this$.camel_snake_kebab$internals$alter_name$AlterName$alter_name$arity$2(this$,f);
 } else {
-return camel_snake_kebab$internals$alter_name$AlterName$alter_name$dyn_35090.call(null,this$,f);
+return camel_snake_kebab$internals$alter_name$AlterName$alter_name$dyn_37397.call(null,this$,f);
 }
 });
 
@@ -60,4 +60,4 @@ return cljs.core.symbol.call(null,f.call(null,cljs.core.name.call(null,this$__$1
 }
 }));
 
-//# sourceMappingURL=alter_name.js.map?rel=1637360824788
+//# sourceMappingURL=alter_name.js.map?rel=1637933614329
