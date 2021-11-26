@@ -1,2 +1,2 @@
 # reagent-project
-# lein figwheel
+- lein figwheel
