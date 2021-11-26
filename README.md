@@ -13,9 +13,6 @@
 - Highcharts library for scatter chart
 - own gauge widget
 
-## DB
-DataScript was chosen for database. DataScript is one such in-memory datastore for the browser. You create a database on page load, put some data in it, track changes. It’s very light and fast. 
-
 ## Run project
 To build this app
 1. run commands
